@@ -1,36 +1,73 @@
-# Course Scheduler
+# Course Planer Frontend 
 
-A dynamic course scheduler for planning out college semesters.
+The frontend of a dynamic course planner for college semesters. The goal is to help students plan out when to take their courses. Once a student chooses their majors, minors, and start year a list of semesters and courses is generated. It is sorted by pre-requisites and course difficulty. The student can then rearrange courses (as long as it's valid placement) and get feedback on difficulty, credits, etc. 
 
-## Goals
+**Note**: Still under active development, not at a production state. 
 
-Course planner that can suggest a sequence of courses based on constraints such as:
+## Getting Started
 
-1. Core / compulsory courses
-2. Individual interest
-3. Credit / ease of completion (i.e. easy grades vs. net learning value)
-4. & more (suggest stuff on our [issues](https://github.com/ufosc/course-scheduler/issues) page!)
+The following steps should get you started and running with the project. 
 
+### Installing
+
+To start working on the project, first install [node](https://nodejs.org/). Version 4 or higher.
+
+Clone this repository.
+
+```
+git clone https://github.com/ufosc/course-planner-frontend.git
+cd course-scheduler
+```
+
+Install dependencies with Node and Typings. 
+
+```
+npm install
+node_modules/.bin/typings install
+```
+
+### Building
+
+To just compile 
+
+```
+npm run build
+```
+
+Then open index.html in your browser. 
+
+Or 
+
+If you want to run an updating server 
+
+```
+npm run dev-server
+```
+
+or on Windows 
+
+```
+npm run w-dev-server
+```
+
+<!--## Deployment
+
+**Additional steps to deploy and run the project**-->
+
+## Built With
+
+We are using TypeScript with React to write this project. Other tools that are used are Node (with npm), Webpack, and Typings. 
+
+- [TypeScript](https://github.com/ufosc/resources/blob/master/resources/typescript.md)) is a super-set of JavaScript that adds type safety and some nice features (like inheritance). This makes it feel more like other Object Oriented languages like Java. It compiles down to JavaScript, as specified in the tsconfig.json.
+- [React](https://github.com/ufosc/resources/blob/master/resources/react.md) is a JavaScript framework that focuses on user interfaces. It improves efficiency by only changing what needs to changes. It also keeps out of the way of other functions. React uses jsx (or tsx in our case) files to render html components.
+- [Node](https://nodejs.org/) is a JavaScript runtime, however we use it's package manager, npm to keep track of various libraries we use, such as react. It's config file is package.json.
+- [Webpack](https://webpack.github.io/) is a module builder that combines all JavaScript into one succinct file. It also provides multiple tools such as a live reloader. It's config file webpack.config.js.
+- [Typings](https://github.com/typings/typings) is a TypeScript definition manager. It allows editors to easily plug into different systems (such as React) and show autocomplete. It's config file is typings.json.
 
 ## Contributing
-See [our contributing guidelines](https://github.com/ufosc/course-scheduler/CONTRIBUTING.md)
 
-### Resources
-We have a wiki that is currently being built, but check out the following resources:
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for how to work on the project.
 
-#### Frontend (React / Typescript / CSS)
-- [Lynda's typescript series](https://www.lynda.com/Typescript-tutorials/TypeScript-Essential-Training/421807-2.html?srchtrk=index%3a1%0alinktypeid%3a2%0aq%3atypescript%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2)
-- [Microsoft's React + Typescript series](http://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+## License
 
-#### First time with react?
-- [Code Academy](https://www.codecademy.com/learn/react-101)
-
-#### UI Design
-- [Material Design Components](http://www.material-ui.com/#/)
-
-#### Backend (Python)
-- [Python 3 standard docs](https://docs.python.org/3/)
-- [Full Stack Python Resources](https://www.fullstackpython.com/best-python-resources.html)
-
-## TODO
-Look at our [projects](https://github.com/ufosc/course-scheduler/projects) or [issues](https://github.com/ufosc/course-scheduler/issues) page!
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

@@ -1,31 +1,73 @@
-# Contributing to the project
-Contributing is really simple, as long as we follow some simple rules:
-1. Coding style and,
-2. How to submit changes
+# Contributing to Course Planner Frontend
 
-## Coding style
-To simplify the process we have an .editorconfig file in each project. Stick to an IDE or editor that supports and respects .editorconfig files. Consistency leads to fewer problems!
+Thank you for helping out with the UFOSC's Course Planner Frontend!
 
-That said here's a short generic checklist:
-1. If a language has some standard formatting guidelines, try to stick to it.
-2. Names should generally be legible and meaningful, e.g.:
-    1. Good: `_dummy = None`
-    2. Bad (less good?) single char names or names like `a = ...`, `a1 = ...`, `a2 = ...` in the same scope. It gets really hard to read code like this.
+Please check out our [slack](http://ufosc.slack.com/) for any additional questions or just to hangout! 
+
+Following these guidelines helps us keep good project workflow. We appreciate you working with us on it. 
+
+## How to help?
+
+Please check the [Projects][Project] and [Issues][Issues] pages for current task. If you see something that you would like to help with, please ask about helping in a comment and we'll assign you too it. Checkout the [DESIGN.md](DESIGN.md) file for an explanation of the architecture of the project. 
+
+<!--### Run Test 
+
+**Give detailed instructions on how to run the test. Also include information about the meaning of the results.**-->
+
+### Submit Changes 
+
+1. Create a fork or branch to tackle a specific issue 
+	- Team members branch off of dev and follow this [guide](https://guides.github.com/introduction/flow/) 
+	- Others make a [fork](https://guides.github.com/activities/forking/)
+  - Name it after the issue or feature you are working on
+2. Follow the style guidelines below 
+	- This helps with debugging and working on the project
+3. Make small incremental commits
+	- It's easier to find issues when only a small amount of code is changed
+4. Run and pass tests
+5. Make a pull request 
+	- The request will be reviewed
+	- Any needed changes will be noted 
+6. The changes will be added to the project 
+	- Yay! Thank you so much for helping out
+
+### Report Bug 
+
+Please provide a detailed description of the bug. Include what was happening before the error, all settings, and test results. This helps us more quickly identify and solve any problems. Create an [Issue][Issues] with this description and add a bug label. We will do our best to respond quickly to it. 
+
+### Request a Feature
+
+Check to see if the feature is already listed in our [Projects][Project]. If it's not, describe the feature and why it would be beneficial. Create an [Issue][Issues] with this description and add a feature enhancement label. We will do our best to respond quickly to it. 
+
+## Style Guide 
+
+Use our [.editorconfig](.editorconfig) to help automatically format your code. A short list of what we require. 
+- Use descriptive names for everything 
+- Make meaningful comments often
+- Indent with tabs, use spaces everywhere else
+- Put curly braces on a new line
+- Keep line length under 100 characters 
+
+For a longer more descriptive list, check out our club's [general style guidelines](https://github.com/ufosc/resources/blob/master/coding-guidelines/general-style.md).
+
+### Example 
+
+```typescript
+/**
+ * Create a degree, major or minor
+ * @param name Name of degree 
+ * @param requiredCredits Number of required credits
+ * @param requiredCourses List of required courses
+ */
+constructor(name: string, requiredCredits: number, requiredCourses: Course[])
+{
+  // Add the attributes to the degree
+  this.name            = name;
+  this.requiredCredits = requiredCredits;
+  this.requiredCourses = requiredCourses;
+}
+```
 
 
-## How to submit a pull request
-Create a feature branch for your changes and try to keep each commit each commit to be an independent feature. 
-
-[Here's a good guide on this](http://codeinthehole.com/writing/pull-requests-and-other-good-practices-for-teams-using-github/)
-
-Cheat-sheet for steps:
-1. Fork this repo
-2. Clone it: `git clone https://github.com/<my_username>/course-scheduler.git`
-3. Create a branch for your awesome feature
-    1. Standard: `git checkout -b feature/<awesome_feature>`
-    2. [GitFlow](http://danielkummer.github.io/git-flow-cheatsheet/) (recommended): `git flow feature start <awesome_feature>`
-4. Once you're done, push your changes to your fork or publish them if you're using GitFlow
-    1. Standard: `git push -u origin feature/<awesome_feature>`
-    2. GitFlow: `git flow feature publish <awesome_feature>` 
-5. [Submit a pull request by comparing changes to our repo](https://help.github.com/articles/creating-a-pull-request/)
-6. We'll review your changes and let you know if anything else needs to be done
+[Project]: https://github.com/ufosc/course-planner-frontend/projects
+[Issues]: https://github.com/ufosc/course-planner-frontend/issues

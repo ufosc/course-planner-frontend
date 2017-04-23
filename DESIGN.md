@@ -2,7 +2,7 @@
 
 ## About
 
-`course-planner` is an application to help students plan course loads for semesters based of their major/minor, interests, and course difficulty.
+`course-planner-frontend` is part of an application to help students plan course loads for semesters based of their major/minor, interests, and course difficulty. This repository is the frontend component of the project. For the backend, checkout [course-planner-backend](https://github.com/ufosc/course-scheduler).
 
 ## Components
 
@@ -27,7 +27,7 @@ Relevant github issues to get started:
 TypeScript will be used to store and manipulate the course and semester information. This includes sorting the courses based on prerequisites and difficulty. React gets information form the Typescript to display each of the UI elements.
 
 Relevant github issues to get started:
-- [Frontend Issues](https://github.com/ufosc/course-scheduler/labels/frontend)
+- [Frontend Issues](https://github.com/ufosc/course-planner-frontend/labels/)
 
 <!-- 
     @TODO: ARCHITECTURE DIAGRAM GOES HERE 
