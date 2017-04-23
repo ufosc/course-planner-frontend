@@ -58,7 +58,7 @@ npm run w-dev-server
 
 We are using TypeScript with React to write this project. Other tools that are used are Node (with npm), Webpack, and Typings. 
 
-- [TypeScript](https://github.com/ufosc/resources/blob/master/resources/typescript.md)) is a super-set of JavaScript that adds type safety and some nice features (like inheritance). This makes it feel more like other Object Oriented languages like Java. It compiles down to JavaScript, as specified in the tsconfig.json.
+- [TypeScript](https://github.com/ufosc/resources/blob/master/resources/typescript.md) is a super-set of JavaScript that adds type safety and some nice features (like inheritance). This makes it feel more like other Object Oriented languages like Java. It compiles down to JavaScript, as specified in the tsconfig.json.
 - [React](https://github.com/ufosc/resources/blob/master/resources/react.md) is a JavaScript framework that focuses on user interfaces. It improves efficiency by only changing what needs to changes. It also keeps out of the way of other functions. React uses jsx (or tsx in our case) files to render html components.
 - [Node](https://nodejs.org/) is a JavaScript runtime, however we use it's package manager, npm to keep track of various libraries we use, such as react. It's config file is package.json.
 - [Webpack](https://webpack.github.io/) is a module builder that combines all JavaScript into one succinct file. It also provides multiple tools such as a live reloader. It's config file webpack.config.js.
@@ -70,4 +70,4 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for how to work on the project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
