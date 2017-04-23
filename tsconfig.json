@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "module": "commonjs",
+    "module": "amd",
     //"noImplicitAny": true,
     "outDir": "./build/",
     "preserveConstEnums": true,

@@ -27,7 +27,7 @@ Relevant github issues to get started:
 TypeScript will be used to store and manipulate the course and semester information. This includes sorting the courses based on prerequisites and difficulty. React gets information form the Typescript to display each of the UI elements.
 
 Relevant github issues to get started:
-- [Frontend Issues](https://github.com/ufosc/course-planner-frontend/labels/)
+- [Frontend Issues](https://github.com/ufosc/course-planner-frontend/issues)
 
 <!-- 
     @TODO: ARCHITECTURE DIAGRAM GOES HERE 
