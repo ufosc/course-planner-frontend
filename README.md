@@ -1,33 +1,21 @@
-# Course Scheduler
+# Course Planer Frontend 
 
-A dynamic course planner for planning out college semesters. 
+The frontend of a dynamic course planner for college semesters. The goal is to help students plan out when to take their courses. Once a student chooses their majors, minors, and start year a list of semesters and courses is generated. It is sorted by pre-requisites and course difficulty. The student can then rearrange courses (as long as it's valid placement) and get feedback on difficulty, credits, etc. 
 
-## Technologies
-
-We are using TypeScript with React to write this project. Other tools that are used are Node (with npm), Webpack, and Typings. 
-
-[TypeScript](http://www.typescriptlang.org/) is a super-set of JavaScript that adds type safety and some nice features (like inheritance). This makes it feel more like other Object Oriented languages like Java. It compiles down to JavaScript, as specified in the tsconfig.json.
- 
-[React](https://facebook.github.io/react/) is a JavaScript framework that focuses on user interfaces. It improves efficiency by only changing what needs to changes. It also keeps out of the way of other functions. React uses jsx (or tsx in our case) files to render html components.
-
-[Node](https://nodejs.org/) is a JavaScript runtime, however we use it's package manager, npm to keep track of various libraries we use, such as react. It's config file is package.json.
-
-[Webpack](https://webpack.github.io/) is a module builder that combines all JavaScript into one succinct file. It also provides multiple tools such as a live reloader. It's config file webpack.config.js.
-
-[Typings](https://github.com/typings/typings) is a TypeScript definition manager. It allows editors to easily plug into different systems (such as React) and show autocomplete. It's config file is typings.json.
-
-## Note Before Reading 
-
-The front end and organization of the project has changed significantly since the below was written, so please check the current dev state for a better idea of the current state. 
+**Note**: Still under active development, not at a production state. 
 
 ## Getting Started
+
+The following steps should get you started and running with the project. 
+
+### Installing
 
 To start working on the project, first install [node](https://nodejs.org/). Version 4 or higher.
 
 Clone this repository.
 
 ```
-git clone https://github.com/ufosc/course-scheduler.git
+git clone https://github.com/ufosc/course-planner-frontend.git
 cd course-scheduler
 ```
 
@@ -38,6 +26,8 @@ npm install
 node_modules/.bin/typings install
 ```
 
+### Building
+
 To just compile 
 
 ```
@@ -45,6 +35,8 @@ npm run build
 ```
 
 Then open index.html in your browser. 
+
+Or 
 
 If you want to run an updating server 
 
@@ -58,22 +50,24 @@ or on Windows
 npm run w-dev-server
 ```
 
-### Resources
+<!--## Deployment
 
-#### Setting Up
+**Additional steps to deploy and run the project**-->
 
-- [Typescript, Webpack, and React](https://medium.com/@fay_jai/getting-started-with-reactjs-typescript-and-webpack-95dcaa0ed33c#.icbywodz2)
+## Built With
 
-#### React Tutorials
+We are using TypeScript with React to write this project. Other tools that are used are Node (with npm), Webpack, and Typings. 
 
-- [Official Tutorial](https://facebook.github.io/react/docs/getting-started.html)
-- [Written Overview](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
-- [Five Examples](http://tutorialzine.com/2014/07/5-practical-examples-for-learning-facebooks-react-framework/)
-- [Video Series](https://www.youtube.com/watch?v=eOctQZ1EV0E&list=PLLnpHn493BHFfs3Uj5tvx17mXk4B4ws4p&index=1)
-- [Code Academy](https://www.codecademy.com/learn/react-101)
+- [TypeScript](https://github.com/ufosc/resources/blob/master/resources/typescript.md)) is a super-set of JavaScript that adds type safety and some nice features (like inheritance). This makes it feel more like other Object Oriented languages like Java. It compiles down to JavaScript, as specified in the tsconfig.json.
+- [React](https://github.com/ufosc/resources/blob/master/resources/react.md) is a JavaScript framework that focuses on user interfaces. It improves efficiency by only changing what needs to changes. It also keeps out of the way of other functions. React uses jsx (or tsx in our case) files to render html components.
+- [Node](https://nodejs.org/) is a JavaScript runtime, however we use it's package manager, npm to keep track of various libraries we use, such as react. It's config file is package.json.
+- [Webpack](https://webpack.github.io/) is a module builder that combines all JavaScript into one succinct file. It also provides multiple tools such as a live reloader. It's config file webpack.config.js.
+- [Typings](https://github.com/typings/typings) is a TypeScript definition manager. It allows editors to easily plug into different systems (such as React) and show autocomplete. It's config file is typings.json.
 
-#### Other links
+## Contributing
 
-- [React Apps](https://github.com/facebookincubator/create-react-app)
-- [Drag and Drop](https://gaearon.github.io/react-dnd/)
-- [Material Design Components](http://www.material-ui.com/#/)
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for how to work on the project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
