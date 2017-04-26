@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "amd",
+    //"noImplicitAny": true,
+    "outDir": "./build/",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "target": "ES5",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,4 +1,7 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Project specific
+
+# build 
+build/
 
 # Project specific
 
@@ -12,8 +15,8 @@ typings/
 # logs
 npm-debug.log
 
-# testing
-coverage
+# Editior Settings 
+cSpell.json
 
 # VirtualEnv
 bin
@@ -126,6 +129,7 @@ GitHub.sublime-settings
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
 cSpell.json
 
 # End of https://www.gitignore.io/api/macos,windows,linux,git,sublimetext,visualstudiocode,code
