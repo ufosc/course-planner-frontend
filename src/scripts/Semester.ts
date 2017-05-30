@@ -7,11 +7,11 @@ const FULL_TIME_SUMMER_CREDITS = 9;
 const FULL_TIME_SPRING_CREDITS = 12;
 const FULL_TIME_FALL_CREDITS   = 12;
 
-// Types of semesters 
+// Types of semesters
 export enum Season
 {
 	Spring,
-	Summer, 
+	Summer,
 	Fall
 }
 
@@ -20,164 +20,164 @@ export enum Season
  */
 export interface ISemester
 {
-	// From the courses 
-	theCourses: Course[];
-	theDifficultyRating: number;
-	theCredits: number;
+	// From the courses
+	courses: Course[];
+	difficultyRating: number;
+	credits: number;
 
-	// For this semester 
-	theYear: number;
-	theSeason: Season;
-	theMessages: string[];
+	// For this semester
+	year: number;
+	season: Season;
+	messages: string[];
 }
 
 /**
- * Contains information about each semester and provides messages 
+ * Contains information about each semester and provides messages
  */
 export class Semester
 {
-	// From the courses 
-	public theCourses: Course[];
-	public theDifficultyRating: number;
-	public theCredits: number;
+	// From the courses
+	public courses: Course[];
+	public difficultyRating: number;
+	public credits: number;
 
-	// For this semester 
-	public theYear: number;
-	public theSeason: Season;
-	public theMessages: string[];
+	// For this semester
+	public year: number;
+	public season: Season;
+	public messages: string[];
 
 	/**
-	 * Create a semester 
-	 * @param aYear Number for the year
-	 * @param aSeason Season for the semester
-	 * @param aCourses List of courses in this semester, defaults to []
+	 * Create a semester
+	 * @param year Number for the year
+	 * @param season Season for the semester
+	 * @param courses List of courses in this semester, defaults to []
 	 */
-	constructor(aYear: number, aSeason: Season, aCourses: Course[] = [])
+	constructor(year: number, season: Season, courses: Course[] = [])
 	{
 		// Add the attributes to the semester, addCourse calls an update
-		this.theCredits = 0;
-		this.theYear    = aYear;
-		this.theSeason  = aSeason;
-		this.theCourses = [];
-		this.addCourse(aCourses);
+		this.credits = 0;
+		this.year    = year;
+		this.season  = season;
+		this.courses = [];
+		this.addCourse(courses);
 		// console.log("The Semester Constructor Credits " + this.theCredits);
 	}
 
 	/**
 	 * Make semester object from a parsed JSON
-	 * @param aJson A json to create the semester from 
+	 * @param json A json to create the semester from
 	 */
-	static fromJson(aJson: ISemester): Semester
+	static fromJson(json: ISemester): Semester
 	{
 		// List for created objects, not json
 		let courseList: Course[] = [];
 
 		// Loop through and create all the courses
-		for (let courseItem of aJson.theCourses)
+		for (let courseItem of json.courses)
 		{
 			courseList.push(Course.fromJson(courseItem));
 		}
 
-		// Call the constructor 
+		// Call the constructor
 		// console.log("FromJson Semester");
 		// console.log(new Semester(aJson.theYear, aJson.theSeason, courseList));
-		
-		return new Semester(aJson.theYear, aJson.theSeason, courseList);
+
+		return new Semester(json.year, json.season, courseList);
 	}
 
 	/**
-	 * Converts the Semester to a Json 
+	 * Converts the Semester to a Json
 	 */
 	public toJson(): ISemester
 	{
 		// Create json from current attributes
 		let json: ISemester =
 			{
-				"theCourses":          this.theCourses,
-				"theDifficultyRating": this.theDifficultyRating,
-				"theCredits":          this.theCredits,
-				"theYear":             this.theYear,
-				"theSeason":           this.theSeason,
-				"theMessages":         this.theMessages
+				"courses":          this.courses,
+				"difficultyRating": this.difficultyRating,
+				"credits":          this.credits,
+				"year":             this.year,
+				"season":           this.season,
+				"messages":         this.messages
 			};
-			
+
 		return json;
 	}
 
 	/**
 	 * Add a course to the semester, modifies semester credits, difficulty, and messages
-	 * @param aNewCourse Course to add to the semester
+	 * @param newCourse Course to add to the semester
 	 */
-	public addCourse(aNewCourse: Course | Course[]): void 
+	public addCourse(newCourse: Course | Course[]): void
 	{
 		// Create course array
 		let courseList: Course[] = [];
 
-		// If it's a single item, make it an array 
-		if (aNewCourse instanceof Course)
+		// If it's a single item, make it an array
+		if (newCourse instanceof Course)
 		{
-			courseList[0] = aNewCourse;
+			courseList[0] = newCourse;
 		}
 		// It's an array, so just set it equal to our new array
-		else 
+		else
 		{
-			courseList = aNewCourse;
+			courseList = newCourse;
 		}
 
-		// Loop through the list and add them 
+		// Loop through the list and add them
 		for (let courseItem of courseList)
-		{			
-			// Add the semester to overall list 
-			this.theCourses.push(courseItem);
+		{
+			// Add the semester to overall list
+			this.courses.push(courseItem);
 
 			// Update credits
-			this.theCredits += courseItem.theCredits;
+			this.credits += courseItem.credits;
 		}
-		// Update the attributes 
+		// Update the attributes
 		this.updateSemester();
 	}
 
 	/**
 	 * Removes a course from the semester, modifies semester credits, difficulty, and messages
-	 * @param anOldCourse Course to be removed
+	 * @param oldCourse Course to be removed
 	 */
-	public removeCourse(anOldCourse: Course | Course[]): void 
+	public removeCourse(oldCourse: Course | Course[]): void
 	{
 		// Create semester array
 		let courseList: Course[] = [];
 
-		// If it's a single item, make it an array 
-		if (anOldCourse instanceof Course)
+		// If it's a single item, make it an array
+		if (oldCourse instanceof Course)
 		{
-			courseList[0] = anOldCourse;
+			courseList[0] = oldCourse;
 		}
 		// It's an array, so just set it equal to our new array
-		else 
+		else
 		{
-			courseList = anOldCourse;
+			courseList = oldCourse;
 		}
 
-		// Loop through the list and add them 
+		// Loop through the list and add them
 		for (let courseItem of courseList)
 		{
-			// Get location of the semester and remove it 
-			let indexOfCourse: number = this.theCourses.indexOf(courseItem);
-			if(indexOfCourse != -1) 
+			// Get location of the semester and remove it
+			let indexOfCourse: number = this.courses.indexOf(courseItem);
+			if(indexOfCourse != -1)
 			{
-				this.theCourses.splice(indexOfCourse, 1);
+				this.courses.splice(indexOfCourse, 1);
 
 				// Update credits
-				this.theCredits -= courseItem.theCredits;
+				this.credits -= courseItem.credits;
 			}
 		}
-		// Update the attributes 
+		// Update the attributes
 		this.updateSemester();
 	}
 
 	/**
-	 * Triggers the updates for all the data collected from the course content 
+	 * Triggers the updates for all the data collected from the course content
 	 */
-	private updateSemester(): void 
+	private updateSemester(): void
 	{
 		this.updateDifficulty();
 		this.updateMessages();
@@ -187,53 +187,53 @@ export class Semester
 	 * This updates the difficulty level of the semester by looking at the credits, course difficulty,
 	 * and semester type
 	 */
-	private updateDifficulty(): void 
+	private updateDifficulty(): void
 	{
-		// Check the difficulty of the semester by averaging them 
-		// TODO: Rethink the algorithm 
+		// Check the difficulty of the semester by averaging them
+		// TODO: Rethink the algorithm
 
 		// Sum them all
 		let sumOfDifficulty: number = 0;
-		for (let course of this.theCourses)
+		for (let course of this.courses)
 		{
-			sumOfDifficulty += course.theDifficultyRating;
+			sumOfDifficulty += course.difficultyRating;
 		}
 
-		// Average the courses 
-		let averageDifficulty: number = sumOfDifficulty / this.theCourses.length;
-		
-		// Get the integer version of the average 
-		this.theDifficultyRating = Number(averageDifficulty);
+		// Average the courses
+		let averageDifficulty: number = sumOfDifficulty / this.courses.length;
+
+		// Get the integer version of the average
+		this.difficultyRating = Number(averageDifficulty);
 	}
 
 	/**
-	 * This updates the messages for this semester. Includes difficulty, insufficient credits 
+	 * This updates the messages for this semester. Includes difficulty, insufficient credits
 	 */
-	private updateMessages(): void 
+	private updateMessages(): void
 	{
-		// Get semester lists 
+		// Get semester lists
 		let messages: SemesterMessages = new SemesterMessages();
 
 		// Clear the messages
-		this.theMessages = [];
+		this.messages = [];
 
 		// Fulltime check, summer, spring, and fall
-		if ((this.theSeason == Season.Summer && this.theCredits < FULL_TIME_SUMMER_CREDITS) ||
-				(this.theSeason == Season.Spring && this.theCredits < FULL_TIME_SPRING_CREDITS) ||
-				(this.theSeason == Season.Fall && this.theCredits < FULL_TIME_FALL_CREDITS))
+		if ((this.season == Season.Summer && this.credits < FULL_TIME_SUMMER_CREDITS) ||
+				(this.season == Season.Spring && this.credits < FULL_TIME_SPRING_CREDITS) ||
+				(this.season == Season.Fall && this.credits < FULL_TIME_FALL_CREDITS))
 		{
-			// Add the fulltime message 
-			this.theMessages.push(messages.FullTime);
+			// Add the fulltime message
+			this.messages.push(messages.FullTime);
 		}
 
 		// Check the difficulty
-		if (this.theDifficultyRating == Difficulty.Hard)
-		{	
-			this.theMessages.push(messages.Hard);
-		}
-		else if (this.theDifficultyRating == Difficulty.Insane)
+		if (this.difficultyRating == Difficulty.Hard)
 		{
-			this.theMessages.push(messages.Insane);
+			this.messages.push(messages.Hard);
+		}
+		else if (this.difficultyRating == Difficulty.Insane)
+		{
+			this.messages.push(messages.Insane);
 		}
 	}
 

@@ -7,26 +7,26 @@ import {Course} from "../scripts/Course"
 /**
  * This displays a semester and all it's courses
  */
-class SemesterView extends React.Component<any, any> 
+class SemesterView extends React.Component<any, any>
 {
-	constructor(props: Semester) 
+	constructor(props: Semester)
 	{
     super(props);
-		this.state = {aSemester: this.props.aSemester};
+		this.state = {semester: this.props.semester};
   }
 
-  render() 
+  render()
 	{
-		let courserList: Course[] = this.state.aSemester.theCourses.map(function(aCourse)
-		{				
-			return <CourseView aCourse={aCourse}/>;
+		let courserList: Course[] = this.state.semester.courses.map(function(course)
+		{
+			return <CourseView course={course}/>;
 		});
 
-		return(		
+		return(
 			<div>
-				<p>Year: {this.state.aSemester.theYear}</p>
-				<p>Season: {this.state.aSemester.theSeason}</p>
-				<p>Credits: {this.state.aSemester.theCredits}</p>
+				<p>Year: {this.state.semester.year}</p>
+				<p>Season: {this.state.semester.season}</p>
+				<p>Credits: {this.state.semester.credits}</p>
 				<p>Courses: </p>
 				<ul>
 					{courserList}

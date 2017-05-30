@@ -9,8 +9,8 @@ const COURSE_SEARCH_MODIFIER: string 	= "/name/";
 /**
  * Contains all the data base communication functions and urls.
  */
-export class DataBaseCommunication 
-{	
+export class DatabaseCommunication
+{
 	public static SearchCourse(className: string, year: string, semester: Season)
 	{
 		// Add season modifier to end of year. Fall is 8, Spring is 1
@@ -23,21 +23,21 @@ export class DataBaseCommunication
 				year = year.concat("1");
 				break;
 			case Season.Summer:
-				// TODO: Add summer term query 
+				// TODO: Add summer term query
 				break;
-			default:				
+			default:
 				// Do nothing
-		}		
+		}
 
-		// Create the query 
-		let query: string = COURSE_SEARCH_START + "" + year + "" 
+		// Create the query
+		let query: string = COURSE_SEARCH_START + "" + year + ""
 				+ COURSE_SEARCH_MODIFIER + "" + className.toUpperCase();
 
 		let http: any = new XMLHttpRequest;
 
 		// Set up asynchronous http request function
-		http.onreadystatechange = function() 
-		{ 			
+		http.onreadystatechange = function()
+		{
 			if (this.readyState == 4 && this.status == 200)
 			{
 				console.log("Got the JSON!");
@@ -46,23 +46,23 @@ export class DataBaseCommunication
 				let courseList: Course[] = [];
 
 				for (let courseItem of json)
-				{					
+				{
 					courseList.push(Course.fromJson(courseItem));
 				}
 				/*console.log("Course list");
 				console.log(courseList);
 				return courseList;*/
 			}
-    }	
+    }
 
-		// Send the request 
+		// Send the request
 		// console.log(query);
-		
-    http.open("GET", query, true); 
+
+    http.open("GET", query, true);
     http.send(null);
 		console.log("Response Text");
 		console.log(http.responseText);
-		
+
     // return http.responseText;
 	}
 }

@@ -1,121 +1,121 @@
 /**
- * Defines a Course 
+ * Defines a Course
  */
 export interface ICourse
 {
-	theName: string;
-	theID: string;
-	theCredits: number;
-	theProfessors: string[];
-	theDescription: string;
-	thePreReqs: Course[];
-	theDifficultyRating: number;
+	name: string;
+	ID: string;
+	credits: number;
+	professors: string[];
+	description: string;
+	prerequisites: Course[];
+	difficultyRating: number;
 	// Should be called InterCourse
 }
 
 /**
- * Contains all information about a course 
+ * Contains all information about a course
  */
 export class Course implements ICourse
 {
 	// From database
-	public theName: string;
-	public theID: string;
-	public theCredits: number;
-	public theProfessors: string[];
-	public theDescription: string;
-	public thePreReqs: Course[];
-	public theDifficultyRating: number;
+	public name: string;
+	public ID: string;
+	public credits: number;
+	public professors: string[];
+	public description: string;
+	public prerequisites: Course[];
+	public difficultyRating: number;
 	// TODO: PostReqs?, Concurrent?, Completed?, notes?
 
 	/**
-	 * Creates a course 
-	 * @param aName Class name
-	 * @param anID Course number
-	 * @param aCredits Number of credits for class
-	 * @param aProfessors List of professors who have taught the class
-	 * @param aDescription Course description 
-	 * @param aPreReqs Prerequisites for this course, defaults to []
-	 * @param aDifficultyRatings Difficulty based of course evaluations 
+	 * Creates a course
+	 * @param name Class name
+	 * @param ID Course number
+	 * @param credits Number of credits for class
+	 * @param professors List of professors who have taught the class
+	 * @param description Course description
+	 * @param prerequisites Prerequisites for this course, defaults to []
+	 * @param difficultyRating Difficulty based of course evaluations
 	 */
-	constructor(aName: string, anID: string, aCredits: number, aProfessors: string[], 
-			aDescription: string, aPreReqs: Course[], aDifficultyRatings: number)
+	constructor(name: string, ID: string, credits: number, professors: string[],
+			description: string, prerequisites: Course[], difficultyRating: number)
 	{
 		// Add the attributes to the course
-		this.theName             = aName;
-		this.theID               = anID;
-		this.theCredits          = aCredits;
-		this.theProfessors       = aProfessors;
-		this.theDescription      = aDescription;
-		this.thePreReqs          = aPreReqs;
-		this.theDifficultyRating = aDifficultyRatings;
+		this.name             = name;
+		this.ID               = ID;
+		this.credits          = credits;
+		this.professors       = professors;
+		this.description      = description;
+		this.prerequisites    = prerequisites;
+		this.difficultyRating = difficultyRating;
 	}
 
 	/**
 	 * Make course object from from a parsed JSON
-	 * @param aJson A json to create the course from 
+	 * @param json A json to create the course from
 	 */
-	static fromJson(aJson: ICourse): Course
+	static fromJson(json: ICourse): Course
 	{
 		// List for created objects, not json
-		let preReqList: Course[] = [];		
+		let prerequisiteList: Course[] = [];
 
 		// Loop through and create all the courses
-		for (let courseItem of aJson.thePreReqs)
-		{			
-			preReqList.push(Course.fromJson(courseItem));
-		}		
+		for (let courseItem of json.prerequisites)
+		{
+			prerequisiteList.push(Course.fromJson(courseItem));
+		}
 
-		// Call the constructor 
-		return new Course(aJson.theName, aJson.theID, aJson.theCredits, aJson.theProfessors, 
-				aJson.theDescription, preReqList, aJson.theDifficultyRating);
+		// Call the constructor
+		return new Course(json.name, json.ID, json.credits, json.professors,
+				json.description, prerequisiteList, json.difficultyRating);
 	}
 
 	/**
-	 * Converts the Course to a Json 
+	 * Converts the Course to a Json
 	 */
 	public toJson(): ICourse
 	{
 		// Create json from current attributes
-		let json: ICourse = 
+		let json: ICourse =
 			{
-				"theName":             this.theName,
-				"theID":               this.theID,
-				"theCredits":          this.theCredits,
-				"theProfessors":       this.theProfessors,
-				"theDescription":      this.theDescription,
-				"thePreReqs":          this.thePreReqs,
-				"theDifficultyRating": this.theDifficultyRating
+				"name":             this.name,
+				"ID":               this.ID,
+				"credits":          this.credits,
+				"professors":       this.professors,
+				"description":      this.description,
+				"prerequisites":    this.prerequisites,
+				"difficultyRating": this.difficultyRating
 			};
 
-		return json;	
+		return json;
 	}
 
 	/**
 	 * Add a prerequisites to the course
-	 * @param aNewPreReq Course to add to the prerequisite list
+	 * @param newPrerequisiteList Course to add to the prerequisite list
 	 */
-	public addPreReq(aNewPreReq: Course | Course[]): void 
+	public addPreReq(newPrerequisiteList: Course | Course[]): void
 	{
 		// Create course array
 		let courseList: Course[] = [];
 
-		// If it's a single item, make it an array 
-		if (aNewPreReq instanceof Course)
+		// If it's a single item, make it an array
+		if (newPrerequisiteList instanceof Course)
 		{
-			courseList[0] = aNewPreReq;
+			courseList[0] = newPrerequisiteList;
 		}
 		// It's an array, so just set it equal to our new array
-		else 
+		else
 		{
-			courseList = aNewPreReq;
+			courseList = newPrerequisiteList;
 		}
 
-		// Loop through the list and add them 
+		// Loop through the list and add them
 		for (let courseItem of courseList)
 		{
-			// Add the semester to overall list 
-			this.thePreReqs.push(courseItem);
+			// Add the semester to overall list
+			this.prerequisites.push(courseItem);
 		}
 	}
 

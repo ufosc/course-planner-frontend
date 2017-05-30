@@ -1,5 +1,5 @@
 /**
- * Holds all messages for a semester 
+ * Holds all messages for a semester
  */
 export class SemesterMessages
 {
@@ -9,10 +9,10 @@ export class SemesterMessages
 }
 
 /**
- * Holds all messages for the overall schedule 
+ * Holds all messages for the overall schedule
  */
 export class OverallMessages
 {
 	readonly FullTime: string = "Not enough credits to be considered full time";
-	readonly MissingReqs: string = "Missing some degree requirements";
+	readonly MissingRequired: string = "Missing some degree requirements";
 }

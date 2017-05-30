@@ -3,24 +3,24 @@ import * as React from "react";
 import {Course, ICourse} from "../scripts/Course"
 
 /**
- * Display a course and its information 
+ * Display a course and its information
  */
-class CourseView extends React.Component<any, any> 
+class CourseView extends React.Component<any, any>
 {
-	constructor(props: Course) 
+	constructor(props: Course)
 	{
     super(props);
-		this.state = {aCourse: this.props.aCourse};
+		this.state = {course: this.props.course};
   }
 
-  render() 
+  render()
 	{
 		return(
 			<div>
-				<p>Name: {this.state.aCourse.theName}</p>
-				<p>ID: {this.state.aCourse.theID}</p>
-				<p>Credits: {this.state.aCourse.theCredits}</p>
-				<p>Difficulty: {this.state.aCourse.theDifficultyRating}</p>
+				<p>Name: {this.state.course.name}</p>
+				<p>ID: {this.state.course.ID}</p>
+				<p>Credits: {this.state.course.credits}</p>
+				<p>Difficulty: {this.state.course.difficultyRating}</p>
 			</div>
 		);
 

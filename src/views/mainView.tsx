@@ -1,240 +1,240 @@
-// Display the main page 
+// Display the main page
 import * as React from "react";
 import OverallScheduleView from "./overallScheduleView";
 import {OverallSchedule} from "../scripts/OverallSchedule"
 import CourseSearchView from "./courseSearchView"
 
-// Some data for testing 
+// Some data for testing
 var dummyData = JSON.stringify(
   {
-      "theSemesters": 
+      "semesters":
       [
         {
-          "theYear": 2017,
-          "theSeason": "Fall",
-          "theCourses": 
+          "year": 2017,
+          "season": "Fall",
+          "courses":
           [
             {
-              "theName": "General Chemistry 1",
-              "theID": "CHM 2045",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "General Chemistry 1",
+              "ID": "CHM 2045",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             },
             {
-              "theName": "General Chemistry 1 Laboratory",
-              "theID": "CHM 2045L",
-              "theDescription": "",
-              "theCredits": 1,
-              "theProfessors": [""], 
-              "theDifficultyRating": 2,
-              "thePreReqs": []
+              "name": "General Chemistry 1 Laboratory",
+              "ID": "CHM 2045L",
+              "description": "",
+              "credits": 1,
+              "professors": [""],
+              "difficultyRating": 2,
+              "prerequisites": []
             },
             {
-              "theName": "Programming Fundamentals 1",
-              "theID": "COP 3502",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "Programming Fundamentals 1",
+              "ID": "COP 3502",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             },
             {
-              "theName": "Expository and Argumentative Writing",
-              "theID": "ENC 1101",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 2,
-              "thePreReqs": []
+              "name": "Expository and Argumentative Writing",
+              "ID": "ENC 1101",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 2,
+              "prerequisites": []
             },
             {
-              "theName": "What is the Good Life",
-              "theID": "IUF 1000",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 2,
-              "thePreReqs": []
+              "name": "What is the Good Life",
+              "ID": "IUF 1000",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 2,
+              "prerequisites": []
             },
             {
-              "theName": "Analytic Geometry and Calculus 1",
-              "theID": "MAC 2311",
-              "theDescription": "",
-              "theCredits": 4,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "Analytic Geometry and Calculus 1",
+              "ID": "MAC 2311",
+              "description": "",
+              "credits": 4,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             }
           ]
         },
         {
-          "theYear": 2018,
-          "theSeason": "Spring",
-          "theCourses": 
+          "year": 2018,
+          "season": "Spring",
+          "courses":
           [
             {
-              "theName": "Programming Fundamentals 2",
-              "theID": "COP 3503",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "Programming Fundamentals 2",
+              "ID": "COP 3503",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             },
             {
-              "theName": "Applications of Discrete Structures",
-              "theID": "COT 3100",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 4,
-              "thePreReqs": []
+              "name": "Applications of Discrete Structures",
+              "ID": "COT 3100",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 4,
+              "prerequisites": []
             },
             {
-              "theName": "Analytic Geometry and Calculus 2",
-              "theID": "MAC 2312",
-              "theDescription": "",
-              "theCredits": 4,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "Analytic Geometry and Calculus 2",
+              "ID": "MAC 2312",
+              "description": "",
+              "credits": 4,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             },
             {
-              "theName": "Physics with Calculus 1",
-              "theID": "PHY 2048",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 4,
-              "thePreReqs": []
+              "name": "Physics with Calculus 1",
+              "ID": "PHY 2048",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 4,
+              "prerequisites": []
             },
             {
-              "theName": "Physics with Calculus 1 Laboratory",
-              "theID": "PHY 2048L",
-              "theDescription": "",
-              "theCredits": 1,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "Physics with Calculus 1 Laboratory",
+              "ID": "PHY 2048L",
+              "description": "",
+              "credits": 1,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             }
           ]
         },
         {
-          "theYear": 2018,
-          "theSeason": "Fall",
-          "theCourses": 
+          "year": 2018,
+          "season": "Fall",
+          "courses":
           [
             {
-              "theName": "Data Structures and Algorithm",
-              "theID": "COP 3530",
-              "theDescription": "",
-              "theCredits": 4,
-              "theProfessors": [""], 
-              "theDifficultyRating": 4,
-              "thePreReqs": []
+              "name": "Data Structures and Algorithm",
+              "ID": "COP 3530",
+              "description": "",
+              "credits": 4,
+              "professors": [""],
+              "difficultyRating": 4,
+              "prerequisites": []
             },
             {
-              "theName": "Analytic Geometry and Calculus 3",
-              "theID": "MAC 2313",
-              "theDescription": "",
-              "theCredits": 4,
-              "theProfessors": [""], 
-              "theDifficultyRating": 4,
-              "thePreReqs": []
+              "name": "Analytic Geometry and Calculus 3",
+              "ID": "MAC 2313",
+              "description": "",
+              "credits": 4,
+              "professors": [""],
+              "difficultyRating": 4,
+              "prerequisites": []
             },
             {
-              "theName": "Physics with Calculus 2",
-              "theID": "PHY 2049",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 4,
-              "thePreReqs": []
+              "name": "Physics with Calculus 2",
+              "ID": "PHY 2049",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 4,
+              "prerequisites": []
             },
             {
-              "theName": "Laboratory for Physics with Calculus 2",
-              "theID": "PHY 2049L",
-              "theDescription": "",
-              "theCredits": 1,
-              "theProfessors": [""], 
-              "theDifficultyRating": 2,
-              "thePreReqs": []
+              "name": "Laboratory for Physics with Calculus 2",
+              "ID": "PHY 2049L",
+              "description": "",
+              "credits": 1,
+              "professors": [""],
+              "difficultyRating": 2,
+              "prerequisites": []
             }
           ]
         },
         {
-          "theYear": 2019,
-          "theSeason": "Spring",
-          "theCourses": 
+          "year": 2019,
+          "season": "Spring",
+          "courses":
           [
             {
-              "theName": "Introduction to Software Engineering",
-              "theID": "CEN 3031",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "Introduction to Software Engineering",
+              "ID": "CEN 3031",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             },
             {
-              "theName": "Professional Communication for Engineers",
-              "theID": "ENC 3246",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 1,
-              "thePreReqs": []
+              "name": "Professional Communication for Engineers",
+              "ID": "ENC 3246",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 1,
+              "prerequisites": []
             },
             {
-              "theName": "Computational Linear Algebra",
-              "theID": "MAS 3114",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 3,
-              "thePreReqs": []
+              "name": "Computational Linear Algebra",
+              "ID": "MAS 3114",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 3,
+              "prerequisites": []
             },
             {
-              "theName": "Introduction to Computer Organization",
-              "theID": "CDA 3101",
-              "theDescription": "",
-              "theCredits": 3,
-              "theProfessors": [""], 
-              "theDifficultyRating": 4,
-              "thePreReqs": []
+              "name": "Introduction to Computer Organization",
+              "ID": "CDA 3101",
+              "description": "",
+              "credits": 3,
+              "professors": [""],
+              "difficultyRating": 4,
+              "prerequisites": []
             }
           ]
         }
       ],
-      "theMajors": 
+      "majors":
       [{
-        "theName": "Computer Science",
-        "theRequiredCourses": [],
-        "theRequiredCredits": 0
+        "name": "Computer Science",
+        "requiredCourses": [],
+        "requiredCredits": 0
       }],
-      "theMinors": 
+      "minors":
       [{
-        "theName": "",
-        "theRequiredCourses": [],
-        "theRequiredCredits": 0
+        "name": "",
+        "requiredCourses": [],
+        "requiredCredits": 0
       }],
   }
 );
 
 /**
- * This is the main layout of the page 
+ * This is the main layout of the page
  */
-class MainView extends React.Component<any, any> 
+class MainView extends React.Component<any, any>
 {
 
-  render() 
+  render()
 	{
 		return(
       <div>
-			  <OverallScheduleView class="right" aSchedule={OverallSchedule.fromJson(JSON.parse(dummyData))}/>
+			  <OverallScheduleView class="right" schedule={OverallSchedule.fromJson(JSON.parse(dummyData))}/>
         <CourseSearchView/>
       </div>
 		);

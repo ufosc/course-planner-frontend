@@ -1,99 +1,99 @@
 import {Course} from './Course'
 
 /**
- * Defines a degree  
+ * Defines a degree
  */
 export interface IDegree
 {
-	theName: string;
-	theRequiredCredits: number;
-	theRequiredCourses: Course[];
+	name: string;
+	requiredCredits: number;
+	requiredCourses: Course[];
 }
 
 /**
- * A major or minor that contains all required courses and other requirements 
+ * A major or minor that contains all required courses and other requirements
  */
 export class Degree implements IDegree
 {
-	public theName: string;
-	public theRequiredCredits: number;
-	public theRequiredCourses: Course[];
-	// TODO: Way to account for electives 
+	public name: string;
+	public requiredCredits: number;
+	public requiredCourses: Course[];
+	// TODO: Way to account for electives
 
 	/**
 	 * Create degree from either
-	 * @param aName Name of major 
-	 * @param aRequiredCourses List of required courses
-	 * @param aRequiredCredits Number of required credits
+	 * @param name Name of major
+	 * @param requiredCredits List of required courses
+	 * @param requiredCourses Number of required credits
 	 */
-	constructor(aName: string, aRequiredCredits: number, aRequiredCourses: Course[])
+	constructor(name: string, requiredCredits: number, requiredCourses: Course[])
 	{
 		// Add the attributes to the degree
-		this.theName            = aName;
-		this.theRequiredCourses = aRequiredCourses;
-		this.theRequiredCredits = aRequiredCredits;
+		this.name            = name;
+		this.requiredCourses = requiredCourses;
+		this.requiredCredits = requiredCredits;
 	}
 
 	/**
 	 * Make degree from from a parsed JSON
-	 * @param aJson A json to create the degree from 
+	 * @param json A json to create the degree from
 	 */
-	static fromJson(aJson: IDegree): Degree
-	{		
+	static fromJson(json: IDegree): Degree
+	{
 		// List for created objects, not json
-		let reqCourseList: Course[] = [];
+		let requiredCourseList: Course[] = [];
 
 		// Loop through and create all the courses
-		for (let courseItem of aJson.theRequiredCourses)
+		for (let courseItem of json.requiredCourses)
 		{
-			reqCourseList.push(Course.fromJson(courseItem));
+			requiredCourseList.push(Course.fromJson(courseItem));
 		}
 
-		// Call the constructor 
-		return new Degree(aJson.theName, aJson.theRequiredCredits, reqCourseList);
+		// Call the constructor
+		return new Degree(json.name, json.requiredCredits, requiredCourseList);
 	}
 
 	/**
-	 * Converts the Course to a Json 
+	 * Converts the Course to a Json
 	 */
 	public toJson(): IDegree
 	{
 		// Create json from current attributes
 		let json: IDegree =
 			{
-				"theName":            this.theName,
-				"theRequiredCredits": this.theRequiredCredits,
-				"theRequiredCourses": this.theRequiredCourses
+				"name":            this.name,
+				"requiredCredits": this.requiredCredits,
+				"requiredCourses": this.requiredCourses
 			};
-			
+
 		return json;
 	}
 
 	/**
 	 * Add a required course to the degree
-	 * @param aNewReqCourse to add to the required course list
+	 * @param newRequiredCourse to add to the required course list
 	 */
-	public addPreReq(aNewReqCourse: Course | Course[]): void 
+	public addPrerequisites(newRequiredCourse: Course | Course[]): void
 	{
 		// Create course array
 		let courseList: Course[] = [];
 
-		// If it's a single item, make it an array 
-		if (aNewReqCourse instanceof Course)
+		// If it's a single item, make it an array
+		if (newRequiredCourse instanceof Course)
 		{
-			courseList[0] = aNewReqCourse;
+			courseList[0] = newRequiredCourse;
 		}
 		// It's an array, so just set it equal to our new array
-		else 
+		else
 		{
-			courseList = aNewReqCourse;
+			courseList = newRequiredCourse;
 		}
 
-		// Loop through the list and add them 
+		// Loop through the list and add them
 		for (let courseItem of courseList)
 		{
-			// Add the semester to overall list 
-			this.theRequiredCourses.push(courseItem);
+			// Add the semester to overall list
+			this.requiredCourses.push(courseItem);
 		}
 	}
 
