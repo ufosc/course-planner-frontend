@@ -66,7 +66,7 @@ We are using TypeScript with React to write this project. Other tools that are u
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for how to work on the project.
+Please read the [CONTRIBUTING.md](docs/CONTRIBUTING.md) for how to get started working on the project. 
 
 ## License
 
